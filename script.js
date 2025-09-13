@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navList = document.getElementById('main-menu');
-    const searchButton = document.querySelector('.search-bar button');
-    const searchInput = document.querySelector('.search-bar input');
+    const searchInput = document.querySelector('.search-input');
+    const searchForm = document.querySelector('.search-form');
 
     if (menuToggle && navList) {
         menuToggle.addEventListener('click', function() {
@@ -12,25 +12,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    if (searchButton && searchInput) {
-        searchButton.addEventListener('click', function() {
+    if (searchForm) {
+        searchForm.addEventListener('submit', function(event) {
+            event.preventDefault();
             const query = searchInput.value.trim();
             if (query) {
                 console.log('Search query:', query);
-                // Add actual search functionality here (e.g., redirect to search page or API call)
                 alert('Searching for: ' + query);
             }
         });
+    }
 
-        searchInput.addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                const query = searchInput.value.trim();
-                if (query) {
-                    console.log('Search query:', query);
-                    // Add actual search functionality here
-                    alert('Searching for: ' + query);
-                }
+    // Smooth scroll for links starting with '#'
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
         });
-    }
+    });
 });

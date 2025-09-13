@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: #222;
     background: #f9fbff;
     line-height: 1.6;
@@ -32,7 +32,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 15px 20px;
+    background: #004085; /* Solid background to ensure no transparency */
 }
 
 .logo img {
@@ -128,53 +129,60 @@ body {
     width: 180px;
 }
 
-.search-button {
-    background: none;
-    border: none;
-    color: #ffa006;
-    font-size: 1.2em;
-    cursor: pointer;
-    padding: 5px;
-    transition: color 0.2s;
-}
-
-.search-button:hover {
-    color: #ff7706;
-}
-
-.hero {
-    text-align: center;
-    padding: 120px 20px 70px;
-    background:
-        linear-gradient(135deg, #eeecea 0, #e6eefc 90%),
-        url('images/space-bg.jpg') center/cover no-repeat;
+.hero-bg {
+    background-image: url('images/logos/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
-    border-radius: 0 0 28px 28px;
-    box-shadow: 0 10px 40px rgba(0, 56, 106, 0.12);
+    padding-top: 150px;
+    padding-bottom: 150px;
 }
 
-.hero h1 {
-    color: #004085;
-    font-size: 2.6em;
+.hero-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-content {
+    /* New Flexbox Rules for centering */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 3em;
     margin-bottom: 16px;
     letter-spacing: 2px;
     font-weight: 700;
 }
 
-.hero .isro-highlight {
+.hero-content .isro-highlight {
     color: #ffa006;
     letter-spacing: 3px;
 }
 
-.hero .subtext {
-    color: #333d4b;
-    font-size: 1.3em;
+.hero-content .subtext {
+    font-size: 1.5em;
     margin-bottom: 30px;
 }
 
 .cta-button {
     display: inline-block;
-    background: linear-gradient(90deg, #ffa006 60%, #ff7706 100%);
+    background: #ffa006;
     color: #fff;
     font-weight: bold;
     border: none;
@@ -182,14 +190,15 @@ body {
     font-size: 1.1em;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 4px 14px rgba(255,160,6, 0.15);
+    box-shadow: 0 6px 20px rgba(255,160,6, 0.3);
     text-decoration: none;
-    transition: background 0.2s, transform 0.2s;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .cta-button:hover {
-    background: linear-gradient(90deg, #ff7706 0%, #ffa006 100%);
+    background: #ff7706;
     transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 8px 25px rgba(255,160,6, 0.4);
 }
 
 .scroll-arrow {
@@ -217,7 +226,7 @@ body {
     .header-flex { flex-direction: row; }
     .menu-toggle { display: block; }
     .nav-list {
-        display: none;
+        display: flex;
         flex-direction: column;
         position: absolute;
         top: 65px;
@@ -230,8 +239,10 @@ body {
         z-index: 2001;
         text-align: right;
         padding: 18px 0;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
     }
-    .nav-list.active { display: flex; }
+    .nav-list.active { transform: translateX(0); }
     .nav-list li {
         margin: 0;
         padding: 14px 36px;
@@ -253,12 +264,15 @@ body {
         width: 100%;
         max-width: 200px;
     }
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+    .hero-content .subtext {
+        font-size: 1.2em;
+    }
 }
 
 @media (max-width: 540px) {
-    .hero {
-        padding: 60px 5vw 40px;
-    }
-    .hero h1 { font-size: 2em; }
+    .hero-content h1 { font-size: 2em; }
     .cta-button { font-size: 1em; padding: 12px 22px; }
 }
