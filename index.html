@@ -14,17 +14,17 @@
         <div class="container header-flex">
             <div class="logo">
                 <a href="#">
-                    <img src="images\logos\Indian_Space_Research_Organisation_Logo.svg.png" alt="ISRO Logo">
+                    <img src="images/logos/Indian_Space_Research_Organisation_Logo.svg.png" alt="ISRO Logo">
                 </a>
             </div>
             <nav class="main-nav">
                 <button class="menu-toggle" aria-controls="main-menu" aria-expanded="false">☰</button>
                 <ul id="main-menu" class="nav-list">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Missions</a></li>
-                    <li><a href="#">News & Events</a></li>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#missions">Missions</a></li>
+                    <li><a href="#news">News & Events</a></li>
                     <li><a href="#">Careers</a></li>
-                    <li><a href="#">About Us</a></li>
                     <li class="search-container">
                         <form class="search-form" role="search">
                             <input type="search" class="search-input" placeholder="Search..." aria-label="Search">
@@ -35,15 +35,64 @@
         </div>
     </header>
     <main>
-        <section class="hero-bg">
+        <section id="hero" class="hero-bg">
             <div class="container hero-content">
                 <h1>Welcome to <span class="isro-highlight">ISRO</span></h1>
                 <p class="subtext">India's Gateway to Space Exploration</p>
-                <a href="#explore" class="cta-button">Explore Our Missions</a>
+                <a href="#missions" class="cta-button">Explore Our Missions</a>
                 <div class="scroll-arrow">&#8595;</div>
             </div>
         </section>
+
+        <section id="about" class="container content-section">
+            <h2>About ISRO</h2>
+            <p>The Indian Space Research Organisation (ISRO) is the national space agency of India. It operates as the primary research and development arm of the Department of Space (DoS), which is directly overseen by the Prime Minister of India. ISRO is primarily responsible for space-based activities, space exploration, and the development of related technologies.</p>
+        </section>
+
+        <section id="missions" class="container content-section">
+            <h2>Our Missions</h2>
+            <div class="missions-grid">
+                <div class="mission-card">
+                    <img src="images/missions/chandrayaan.png" alt="Chandrayaan Mission">
+                    <h3>Chandrayaan</h3>
+                    <p>India's lunar exploration program, consisting of a series of missions to the Moon.</p>
+                </div>
+                <div class="mission-card">
+                    <img src="images/missions/mangalyaan.png" alt="Mangalyaan Mission">
+                    <h3>Mangalyaan</h3>
+                    <p>India's first interplanetary mission, the Mars Orbiter Mission (MOM).</p>
+                </div>
+                <div class="mission-card">
+                    <img src="images/missions/gslv.png" alt="GSLV Rocket">
+                    <h3>GSLV</h3>
+                    <p>The Geosynchronous Satellite Launch Vehicle, used to launch satellites into geostationary orbit.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="news" class="container content-section">
+            <h2>News & Events</h2>
+            <div class="news-list">
+                <article class="news-item">
+                    <h3>Successful Launch of PSLV-C57</h3>
+                    <p>ISRO successfully launched the PSLV-C57 carrying the Aditya-L1 satellite from the Satish Dhawan Space Centre.</p>
+                    <a href="#">Read More</a>
+                </article>
+                <article class="news-item">
+                    <h3>Gaganyaan Mission Update</h3>
+                    <p>The first uncrewed flight test of the Gaganyaan program is scheduled for later this year.</p>
+                    <a href="#">Read More</a>
+                </article>
+            </div>
+        </section>
     </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2024 ISRO Remastered. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
