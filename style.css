@@ -3,6 +3,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -10,6 +11,10 @@ body {
     color: #333;
     background: #f4f7fc;
     line-height: 1.6;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 .container {
@@ -40,6 +45,7 @@ body {
     width: 60px;
     height: auto;
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .logo img:hover {
@@ -55,6 +61,7 @@ body {
 
 .nav-list li {
     margin-left: 2rem;
+    position: relative;
 }
 
 .nav-list a {
@@ -64,6 +71,8 @@ body {
     position: relative;
     padding-bottom: 5px;
     transition: color 0.3s;
+    font-size: 1em;
+    letter-spacing: 0.5px;
 }
 
 .nav-list a::after {
@@ -75,6 +84,8 @@ body {
     left: 0;
     background-color: #ffa006;
     transition: width 0.3s;
+    border-radius: 2px;
+    margin-top: 5px;
 }
 
 .nav-list a:hover,
@@ -93,6 +104,8 @@ body {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 5px 10px;
+    transition: background 0.3s;
+    margin-left: 1rem;
 }
 
 .search-input {
@@ -103,19 +116,66 @@ body {
     outline: none;
     width: 120px;
     transition: width 0.4s ease-in-out;
+    padding: 5px;
+    letter-spacing: 0.5px;
 }
 
 .search-input::placeholder {
     color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    font-size: 0.9em;
 }
 
 .search-input:focus {
     width: 180px;
 }
 
+/* Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: color 0.3s;
+    padding: 0;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+    font-size: 0.9em;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 /* Hero Section */
 .hero-bg {
-    background-image: url('images/logos/background.jpg');
+    background-image: url('../images/logos/background.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -125,6 +185,8 @@ body {
     text-align: center;
     color: white;
     position: relative;
+    overflow: hidden;
+    padding: 0 1rem;
 }
 
 .hero-bg::before {
@@ -135,16 +197,21 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
+    max-width: 800px;
+    animation: fadeInUp 1s ease-out;
 }
 
 .hero-content h1 {
     font-size: 4em;
     margin-bottom: 0.5em;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .isro-highlight {
@@ -154,27 +221,36 @@ body {
 .subtext {
     font-size: 1.5em;
     margin-bottom: 1.5em;
+    font-weight: 300;
 }
 
+/* --- Improved CTA Button with Gradient Hover --- */
 .cta-button {
-    background: #ffa006;
+    background: linear-gradient(to right, #ffa006, #ffc107); /* Right-facing gradient */
     color: #fff;
     padding: 15px 30px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
-    transition: background 0.3s, transform 0.3s;
+    transition: all 0.4s ease; /* Smoother transition */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    border: none;
 }
 
 .cta-button:hover {
-    background: #e69500;
     transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to left, #ffa006, #ffc107); /* Left-facing gradient on hover */
 }
 
 .scroll-arrow {
     font-size: 2em;
     margin-top: 2em;
+    color: #ffa006;
     animation: bounce 2s infinite;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
 @keyframes bounce {
@@ -191,7 +267,7 @@ body {
 
 /* Content Sections */
 .content-section {
-    padding: 4rem 0;
+    padding: 4rem 1rem;
     text-align: center;
 }
 
@@ -199,6 +275,41 @@ body {
     font-size: 2.5em;
     margin-bottom: 1.5em;
     color: #004085;
+    font-weight: 600;
+}
+
+/* "About Us" Section */
+#about.content-section {
+    background-color: #ffffff;
+    padding: 4rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    text-align: left;
+    max-width: 900px;
+    margin: 4rem auto;
+}
+
+#about h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+#about h3 {
+    font-size: 1.8em;
+    color: #004085;
+    margin-bottom: 1rem;
+}
+
+#about p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #555555;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+#about p:last-child {
+    margin-bottom: 0;
 }
 
 /* Missions Section */
@@ -206,19 +317,20 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    margin-top: 2rem;
 }
 
 .mission-card {
     background: white;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .mission-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .mission-card img {
@@ -229,57 +341,121 @@ body {
 
 .mission-card h3 {
     font-size: 1.5em;
-    margin: 1rem 0;
+    margin: 1rem 0 0.5rem 0;
     color: #004085;
 }
 
 .mission-card p {
-    padding: 0 1.5rem 1.5rem;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    color: #666;
+    font-size: 0.95em;
+    line-height: 1.5;
 }
 
-/* News Section */
+/* --- Improved News & Events Section --- */
 .news-list {
     text-align: left;
+    max-width: 800px; /* Constrain width for readability */
+    margin: 0 auto;
+    display: grid;
+    gap: 1.5rem; /* Space between news items */
 }
 
 .news-item {
     background: white;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
+    padding: 1.5rem 2rem;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-left: 5px solid #004085; /* Accent color bar */
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
 .news-item h3 {
     color: #004085;
+    margin-bottom: 0.5rem;
+}
+
+.news-item p {
+    color: #666;
+    margin-bottom: 1rem;
 }
 
 .news-item a {
     color: #ffa006;
     text-decoration: none;
     font-weight: bold;
+    position: relative;
 }
 
-/* Footer */
-.main-footer {
-    background: #004085;
-    color: white;
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 4rem;
+/* Underline effect for the "Read More" link */
+.news-item a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #ffa006;
+    transition: width 0.3s;
+}
+
+.news-item a:hover::after {
+    width: 100%;
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive Styles */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8em;
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {
     .header-flex {
-        flex-direction: column;
+        position: relative;
     }
 
     .nav-list {
-        margin-top: 1rem;
+        display: none;
+        flex-direction: column;
+        background: #00336a;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        padding: 1rem 0;
     }
 
-    .hero-content h1 {
-        font-size: 3em;
+    .nav-list.active {
+        display: flex;
+    }
+
+    .nav-list li {
+        margin: 1rem 0;
+        text-align: center;
+    }
+    
+    .menu-toggle {
+        display: block;
     }
 }
