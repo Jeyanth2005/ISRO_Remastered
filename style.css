@@ -73,6 +73,7 @@ html {
     transition: color 0.3s;
     font-size: 1em;
     letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .nav-list a::after {
@@ -91,6 +92,7 @@ html {
 .nav-list a:hover,
 .nav-list a:focus {
     color: #ffa006;
+    outline: none;
 }
 
 .nav-list a:hover::after {
@@ -156,6 +158,8 @@ html {
     border-radius: 5px;
     overflow: hidden;
     margin-top: 5px;
+    right: 0;
+    animation: fadeIn 0.3s ease;
 }
 
 /* This is the key change: only display the dropdown when it has the is-active class */
