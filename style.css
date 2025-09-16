@@ -147,7 +147,7 @@ html {
 }
 
 .dropdown-content {
-    display: none;
+    display: none; /* Hide by default */
     position: absolute;
     background-color: #f9f9f9;
     min-width: 200px;
@@ -157,6 +157,12 @@ html {
     overflow: hidden;
     margin-top: 5px;
 }
+
+/* This is the key change: only display the dropdown when it has the is-active class */
+.dropdown-content.is-active {
+    display: block;
+}
+
 
 .dropdown-content a {
     color: black;
@@ -168,10 +174,6 @@ html {
 }
 
 .dropdown-content a:hover {background-color: #f1f1f1}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
 
 /* Hero Section */
 .hero-bg {
@@ -444,18 +446,26 @@ html {
         right: 0;
         width: 100%;
         padding: 1rem 0;
+        border-radius: 0 0 10px 10px;
+        z-index: 999;
     }
 
     .nav-list.active {
         display: flex;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        border-top: 2px solid #ffa006;
+        animation: slideDown 0.3s ease forwards;
     }
 
     .nav-list li {
         margin: 1rem 0;
         text-align: center;
+        margin-left: 0;
     }
     
     .menu-toggle {
         display: block;
+        position: absolute;
+        top: 1rem;
     }
 }

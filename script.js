@@ -1,39 +1,41 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navList = document.getElementById('main-menu');
-    const searchInput = document.querySelector('.search-input');
-    const searchForm = document.querySelector('.search-form');
 
-    if (menuToggle && navList) {
-        menuToggle.addEventListener('click', function() {
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            this.setAttribute('aria-expanded', !isExpanded);
-            navList.classList.toggle('active');
-        });
+    // --- Simple Dropdown Logic for Testing ---
+    const missionsButton = document.getElementById('missions-btn');
+    const missionsMenu = document.getElementById('missions-menu');
+    
+    const newsButton = document.getElementById('news-btn');
+    const newsMenu = document.getElementById('news-menu');
+
+    // Function to close all menus
+    function closeAllMenus() {
+        missionsMenu.classList.remove('is-active');
+        newsMenu.classList.remove('is-active');
     }
 
-    if (searchForm) {
-        searchForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const query = searchInput.value.trim();
-            if (query) {
-                console.log('Search query:', query);
-                alert('Searching for: ' + query);
-            }
-        });
-    }
-
-    // Smooth scroll for links starting with '#'
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
+    // Event listener for the Missions button
+    missionsButton.addEventListener('click', function(event) {
+        event.stopPropagation(); // Prevents the click from closing the menu immediately
+        const isActive = missionsMenu.classList.contains('is-active');
+        closeAllMenus(); // Close other menus
+        if (!isActive) {
+            missionsMenu.classList.add('is-active'); // Open this menu if it was closed
+        }
     });
+
+    // Event listener for the News button
+    newsButton.addEventListener('click', function(event) {
+        event.stopPropagation(); // Prevents the click from closing the menu immediately
+        const isActive = newsMenu.classList.contains('is-active');
+        closeAllMenus(); // Close other menus
+        if (!isActive) {
+            newsMenu.classList.add('is-active'); // Open this menu if it was closed
+        }
+    });
+
+    // Add a global click listener to close menus when clicking anywhere else
+    document.addEventListener('click', function() {
+        closeAllMenus();
+    });
+
 });
