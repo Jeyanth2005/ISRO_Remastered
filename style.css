@@ -162,8 +162,15 @@ html {
     animation: fadeIn 0.3s ease;
 }
 
-/* This is the key change: only display the dropdown when it has the is-active class */
+/* This rule is no longer needed for the click behavior */
+/*
 .dropdown-content.is-active {
+    display: block;
+}
+*/
+
+/* New rule to show dropdown on hover */
+.dropdown:hover .dropdown-content {
     display: block;
 }
 

@@ -1,3 +1,12 @@
+Of course. I'll add a similar dropdown menu for the "Careers" link.
+
+This change only requires editing the `home/home.html` file. The existing CSS will automatically style the new dropdown correctly.
+
+Here is the entire updated code for the `home/home.html` file.
+
+### **`home/home.html`**
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +51,15 @@
                             <a href="#">Upcoming Launches & Landings</a>
                         </div>
                     </li>
-                    <li><a href="#">Careers</a></li>
+                    <li class="dropdown">
+                        <a href="#" id="careers-btn" class="dropbtn">Careers</a>
+                        <div id="careers-menu" class="dropdown-content">
+                            <a href="#">Opportunities</a>
+                            <a href="#">Engagement Programmes</a>
+                            <a href="#">Students</a>
+                            <a href="#">Training</a>
+                        </div>
+                    </li>
                     <li class="search-container">
                         <form class="search-form" role="search">
                             <input type="search" class="search-input" placeholder="Search..." aria-label="Search">
@@ -115,3 +132,4 @@
     <script src="../script.js"></script>
 </body>
 </html>
+```
