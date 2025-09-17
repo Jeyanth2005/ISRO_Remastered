@@ -148,6 +148,25 @@ html {
     padding: 0;
 }
 
+/* NEW: Alternative style for the dropdown arrow (Chevron) */
+.dropbtn::after {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border: solid currentColor;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg); /* Points down */
+    margin-left: 0.5em;
+    margin-bottom: 2px; /* Fine-tune vertical alignment */
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropbtn::after {
+    transform: rotate(-135deg); /* Points up */
+}
+
+
 .dropdown-content {
     display: none; /* Hide by default */
     position: absolute;
