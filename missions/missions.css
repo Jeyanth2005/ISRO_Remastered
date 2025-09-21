@@ -1,0 +1,210 @@
+/* --- General Body Styling --- */
+body {
+    background-color: #ffffff;
+    color: #212529;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* --- Hero Section --- */
+.missions-hero {
+    background-color: #f8f9fa; /* A subtle off-white */
+    text-align: center;
+    padding: 6rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+}
+
+.missions-page-title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #004085;
+    letter-spacing: -1px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.missions-page-subtitle {
+    font-size: 1.3rem;
+    color: #495057;
+    max-width: 750px;
+    margin: 1rem auto 0;
+    line-height: 1.7;
+    font-weight: 500;
+    opacity: 0.85;
+}
+
+/* --- Main Content & Grid --- */
+.main-content {
+    padding: 5rem 1rem;
+    background-color: #ffffff;
+    max-width: 1400px;
+}
+
+.mission-grid-container {
+    display: grid;
+    /* UPDATED: Default to 2 columns and adjust max-width */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem; /* Increased gap for a more spacious feel */
+    max-width: 1200px; /* Adjusted for a better 2-column layout */
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+/* --- Mission Card - The Professional Design --- */
+.mission-category-card {
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    height: 450px; /* Increased height for a better aspect ratio */
+    display: block;
+    box-shadow: 0 10px 25px rgba(0, 64, 133, 0.08);
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+    background-color: #e9ecef; /* Fallback background color */
+    color: inherit; /* Inherit text color */
+}
+
+.mission-category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 64, 133, 0.15);
+}
+
+/* Card Background Image */
+.card-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease;
+}
+.mission-category-card .card-background {
+    filter: brightness(0.75); /* Darken the image for better text contrast */
+    transform: scale(1);
+    will-change: transform; /* Optimize for performance */
+}
+
+.mission-category-card:hover .card-background {
+    transform: scale(1.1);
+    filter: brightness(0.85); /* Slightly lighten on hover */
+}
+
+/* Card Content - Revealed on Hover */
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+    color: #ffffff;
+    transform: translateY(100%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    box-sizing: border-box; /* Ensures padding is included in the height */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Aligns content to the bottom */
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+    border-radius: 0 0 12px 12px; /* Match card border radius */
+}
+
+.mission-category-card:hover .card-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+.card-content h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 0.3rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.85;
+}
+
+.card-content h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    line-height: 1.1;
+    color: #ffd700; /* Gold color for emphasis */
+}
+
+.card-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+    opacity: 0.9;
+    flex-grow: 1; /* Pushes the button to the bottom */
+    text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+}
+
+/* "Explore" Button */
+.explore-button {
+    background: #ffa006;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    align-self: flex-start; /* Aligns button to the left */
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 160, 6, 0.4);
+    border: none;
+    cursor: pointer;
+}
+
+.explore-button:hover {
+    background: #ffc107;
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.5);
+    text-decoration: none;
+}
+
+/* --- Static Card Title - Visible by Default --- */
+.static-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background: rgba(0, 31, 63, 0.7);
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+    box-sizing: border-box; /* Ensures padding is included in the height */
+    border-radius: 0 0 12px 12px; /* Match card border
+}
+
+.mission-category-card:hover .static-title {
+    opacity: 0;
+}
+
+/* --- Responsive Styles for smaller screens --- */
+@media (max-width: 768px) {
+    .mission-grid-container {
+        /* On smaller screens, go back to a single column */
+        grid-template-columns: 1fr;
+    }
+
+    .missions-page-title {
+        font-size: 3rem;
+    }
+    .missions-page-subtitle {
+        font-size: 1.1rem;
+    }
+    .mission-category-card {
+        height: 400px; /* Slightly reduced height for smaller screens */
+    }
+}
