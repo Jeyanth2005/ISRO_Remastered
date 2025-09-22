@@ -42,6 +42,7 @@ body {
     padding: 5rem 1rem;
     background-color: #ffffff;
     max-width: 1400px;
+    margin: 0 auto; /* Centering the content */
 }
 
 .mission-grid-container {
@@ -61,7 +62,7 @@ body {
     overflow: hidden;
     position: relative;
     text-decoration: none;
-    height: 450px; /* Increased height for a better aspect ratio */
+    height: 380px; /* Reduced height for a more compact look */
     display: block;
     box-shadow: 0 10px 25px rgba(0, 64, 133, 0.08);
     transition: box-shadow 0.4s ease, transform 0.4s ease;
@@ -150,23 +151,24 @@ body {
 
 /* "Explore" Button */
 .explore-button {
-    background: #ffa006;
+    background: linear-gradient(to right, #ffa006, #ffc107); /* Gradient background */
     color: #ffffff;
     padding: 10px 20px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
     align-self: flex-start; /* Aligns button to the left */
-    transition: background-color 0.3s ease;
+    transition: all 0.4s ease; /* Updated transition */
     box-shadow: 0 4px 15px rgba(255, 160, 6, 0.4);
     border: none;
     cursor: pointer;
 }
 
 .explore-button:hover {
-    background: #ffc107;
+    background: linear-gradient(to left, #ffa006, #ffc107); /* Reversed gradient on hover */
     box-shadow: 0 6px 20px rgba(255, 193, 7, 0.5);
     text-decoration: none;
+    transform: translateY(-3px); /* Add a subtle lift */
 }
 
 /* --- Static Card Title - Visible by Default --- */
