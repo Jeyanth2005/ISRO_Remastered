@@ -1,104 +1,277 @@
-/* --- Article Page Specific Styling --- */
-body {
-    background-color: #f4f7fc;
-    color: #212529;
-    font-family: 'Poppins', sans-serif;
+/* --- ULTRA-PREMIUM EDITORIAL ARTICLE CSS (REFINED & FIXED) --- */
+
+/* 1. ROOT VARIABLES & TYPOGRAPHY */
+:root {
+    --font-heading: 'Source Sans 3', sans-serif;
+    --font-body: 'Source Serif 4', serif;
+
+    --color-dark-blue: #0d2c4f;
+    --color-text-body: #2b2b2b;
+    --color-text-light: #666666;
+    --color-accent: #ff9d00;
+    --color-background: #fdfdfd;
+    --color-border: #e5e5e5;
+
+    --max-width: 760px;
+    --line-height-body: 1.9;
+
+    --radius: 10px;
+    --transition-fast: 0.25s ease;
+    --transition-slow: 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.article-container {
-    max-width: 900px;
-    margin: 4rem auto;
-    padding: 3rem;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-    line-height: 1.8;
-    box-sizing: border-box;
+/* 2. BASE STYLING */
+body {
+    background-color: var(--color-background);
+    color: var(--color-text-body);
+    font-family: var(--font-body);
+    line-height: var(--line-height-body);
+    font-size: 1.125rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+/* Paragraph rhythm */
+p {
+    max-width: 68ch;
+    margin: 0 0 1.8rem; /* Changed to left-align paragraphs by default */
+    text-align: justify;
+    line-height: 1.75;
+    font-size: 1.1rem;
+}
+/* Center paragraphs within the header specifically */
+.header-content p {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+
+/* 3. ARTICLE HEADER */
+.article-header {
+    background: linear-gradient(135deg, #ffffff 0%, #f7f9fb 100%);
+    border-bottom: 1px solid var(--color-border);
+    padding: 6rem 1rem 5rem;
+    margin-bottom: 4rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+/* Subtle animated gradient overlay */
+.article-header::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,160,6,0.07) 0%, transparent 70%);
+    animation: floatGlow 15s infinite linear;
+    pointer-events: none;
+    z-index: 0;
+}
+@keyframes floatGlow {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(10%,10%); }
+    100% { transform: translate(0,0); }
+}
+
+.header-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 .article-title {
-    font-size: 2.8rem;
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 4.5vw, 3.8rem);
     font-weight: 700;
-    color: #004085;
+    color: var(--color-dark-blue);
+    line-height: 1.25;
     margin-bottom: 1.5rem;
-    line-height: 1.3;
-    text-align: center;
-    border-bottom: 3px solid #ffa006;
-    padding-bottom: 1rem;
+    letter-spacing: -0.6px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
 
 .article-intro {
-    font-size: 1.2rem;
+    font-size: 1.35rem;
     font-style: italic;
-    color: #555;
-    margin-bottom: 2.5rem;
+    color: var(--color-text-light);
+    max-width: 85%;
+    margin: 0 auto;
+    line-height: 1.75;
+    font-weight: 500;
     text-align: center;
-    border-bottom: 2px solid #ffa006;
-    padding-bottom: 1.5rem;
-    line-height: 1.6;
-    max-width: 700px;
 }
 
-.article-section {
-    margin-bottom: 2.5rem;
+/* 4. MAIN CONTENT */
+.content-article {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
+/* Section headings */
 .article-section h2 {
-    font-size: 2rem;
+    font-family: var(--font-heading);
+    font-size: 2.3rem;
     font-weight: 600;
-    color: #004085;
-    margin-bottom: 1rem;
-    border-left: 4px solid #ffa006;
-    padding-left: 1rem;
-    line-height: 1.4;
-    margin-top: 2rem;
+    color: var(--color-dark-blue);
+    margin: 4.5rem 0 1.6rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 3px solid var(--color-accent);
+    letter-spacing: -0.4px;
+    position: relative;
+    /* FIX: Removed 'display: inline-block' to ensure it takes full width and aligns left */
 }
 
+/* Decorative accent dot */
+.article-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background: var(--color-accent);
+    border-radius: 50%;
+}
+
+/* Sub-headings */
 .article-section h3 {
-    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    font-size: 1.55rem;
     font-weight: 600;
-    color: #0056b3;
-    margin-top: 2rem;
-    margin-bottom: 0.8rem;
-    line-height: 1.4;
-    border-left: 3px solid #ffa006;
+    color: var(--color-dark-blue);
+    margin: 2.5rem 0 1.2rem;
 }
 
-.article-section p {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-    text-align: justify;
-    color: #444;
-    line-height: 1.6;
-}
-
+/* 5. LIST & LINKS */
 .article-section ul {
-    list-style-type: disc;
-    padding-left: 2rem;
-    margin-bottom: 1.5rem;
-    color: #444;
-    line-height: 1.6;
+    list-style: none;
+    padding-left: 0;
+    margin: 2rem 0;
 }
 
 .article-section li {
-    font-size: 1.1rem;
-    margin-bottom: 0.8rem;
-    color: #444;
-    line-height: 1.6;
+    padding-left: 2rem;
+    position: relative;
+    margin-bottom: 1.1rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
 }
 
-.article-section strong {
-    color: #004085;
+.article-section li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--color-accent);
+    font-size: 1.4rem;
+    line-height: 1.2;
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color var(--transition-fast);
     font-weight: 600;
 }
-.article-section a {
-    color: #ffa006;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-.article-section a:hover {
-    color: #cc8400;
+a:hover {
+    color: var(--color-dark-blue);
     text-decoration: underline;
+}
+
+/* 6. IMAGES & FIGURES */
+.article-image {
+    margin: 3.5rem auto;
+    width: 100%;
+    text-align: center;
+}
+
+.article-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+    transition: transform var(--transition-slow), box-shadow var(--transition-fast);
+}
+
+.article-image img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.15);
+}
+
+.article-image figcaption {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-top: 1rem;
+    padding: 0 1rem;
+    font-style: italic;
+}
+
+/* Wide images */
+.wide-image {
+    max-width: 1000px;
+    width: calc(100% + 90px);
+    margin-left: -45px;
+}
+
+/* Full breakout images */
+.breakout-image {
+    max-width: 1200px;
+    width: 120vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.breakout-image img {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+}
+
+/* 7. FOOTER */
+.main-footer {
+    margin-top: 6rem;
+    padding: 2.5rem 1rem;
+    background: var(--color-dark-blue);
+    color: #ffffff;
+    text-align: center;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    line-height: 1.6;
+}
+.main-footer a {
+    color: var(--color-accent);
+    transition: color var(--transition-fast);
+}
+.main-footer a:hover {
+    color: #ffffff;
+}
+
+/* 8. RESPONSIVE ENHANCEMENTS */
+@media (max-width: 900px) {
+    .wide-image {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    body { font-size: 1.05rem; }
+    .article-title { font-size: 2.3rem; }
+    .article-intro { font-size: 1.1rem; }
+    .article-header { padding: 3.5rem 1rem; }
+    
+    .breakout-image {
+        width: 100vw;
+    }
 }
