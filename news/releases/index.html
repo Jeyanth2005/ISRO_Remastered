@@ -22,41 +22,59 @@
         <div class="news-container">
             <div class="news-layout">
                 <div class="article-list">
-                    <article class="article-item">
+                    <article class="article-item" data-year="2025" data-category="Mission Updates">
                         <div class="item-date">October 05, 2025</div>
                         <h2 class="item-title"><a href="gaganyaan-uncrewed-flight.html">Gaganyaan Mission: First Uncrewed Flight Test Scheduled</a></h2>
                         <p class="item-summary">ISRO announces that the first uncrewed flight test of the Gaganyaan program, a crucial milestone in India's human spaceflight mission, is scheduled for the last quarter of this year.</p>
                     </article>
 
-                    <article class="article-item">
+                    <article class="article-item" data-year="2025" data-category="Mission Updates">
                         <div class="item-date">September 23, 2025</div>
                         <h2 class="item-title"><a href="pslv-c57-launch.html">Successful Launch of PSLV-C57 Carrying Aditya-L1 Satellite</a></h2>
                         <p class="item-summary">The Indian Space Research Organisation (ISRO) successfully launched the PSLV-C57 vehicle carrying the Aditya-L1 satellite, India's first solar observatory, from the Satish Dhawan Space Centre SHAR, Sriharikota.</p>
                     </article>
                     
+                    <article class="article-item" data-year="2024" data-category="Announcements">
+                        <div class="item-date">December 12, 2024</div>
+                        <h2 class="item-title"><a href="#">ISRO Announces New Batch of Astronaut Trainees</a></h2>
+                        <p class="item-summary">ISRO has selected a new batch of astronaut trainees to join the Gaganyaan program, further strengthening India's human spaceflight capabilities.</p>
+                    </article>
+
+                    <article class="article-item" data-year="2023" data-category="Press Releases">
+                        <div class="item-date">November 28, 2023</div>
+                        <h2 class="item-title"><a href="#">Chandrayaan-3 Rover Completes its Mission</a></h2>
+                        <p class="item-summary">The Pragyan rover of the Chandrayaan-3 mission has successfully completed its assignments on the lunar surface and is now in sleep mode.</p>
+                    </article>
+                    <div id="no-results" style="display: none;">
+                        <h3>No results found</h3>
+                        <p>Please try a different search term or filter.</p>
                     </div>
+
+                </div>
 
                 <aside class="sidebar">
                     <div class="sidebar-widget">
                         <h3 class="widget-title">Search</h3>
                         <form class="search-bar" role="search">
-                            <input type="search" placeholder="Search news...">
+                            <input type="search" id="searchInput" placeholder="Search news...">
                         </form>
                     </div>
                     <div class="sidebar-widget">
                         <h3 class="widget-title">Archives</h3>
-                        <ul class="widget-list">
-                            <li><a href="#">2025</a></li>
-                            <li><a href="#">2024</a></li>
-                            <li><a href="#">2023</a></li>
+                        <ul class="widget-list" id="archives">
+                            <li><a href="#" data-year="all">All</a></li>
+                            <li><a href="#" data-year="2025">2025</a></li>
+                            <li><a href="#" data-year="2024">2024</a></li>
+                            <li><a href="#" data-year="2023">2023</a></li>
                         </ul>
                     </div>
                     <div class="sidebar-widget">
                         <h3 class="widget-title">Categories</h3>
-                        <ul class="widget-list">
-                            <li><a href="#">Press Releases</a></li>
-                            <li><a href="#">Mission Updates</a></li>
-                            <li><a href="#">Announcements</a></li>
+                        <ul class="widget-list" id="categories">
+                            <li><a href="#" data-category="all">All</a></li>
+                            <li><a href="#" data-category="Press Releases">Press Releases</a></li>
+                            <li><a href="#" data-category="Mission Updates">Mission Updates</a></li>
+                            <li><a href="#" data-category="Announcements">Announcements</a></li>
                         </ul>
                     </div>
                 </aside>
@@ -66,5 +84,62 @@
 
     <footer class="main-footer">
         </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const searchInput = document.getElementById("searchInput");
+            const articles = document.querySelectorAll(".article-item");
+            const archives = document.getElementById("archives");
+            const categories = document.getElementById("categories");
+            const noResults = document.getElementById("no-results");
+
+            function filterArticles() {
+                const searchQuery = searchInput.value.toLowerCase();
+                const selectedYear = archives.querySelector(".active")?.dataset.year || "all";
+                const selectedCategory = categories.querySelector(".active")?.dataset.category || "all";
+                let resultsFound = false;
+
+                articles.forEach(article => {
+                    const title = article.querySelector(".item-title").textContent.toLowerCase();
+                    const summary = article.querySelector(".item-summary").textContent.toLowerCase();
+                    const year = article.dataset.year;
+                    const category = article.dataset.category;
+
+                    const searchMatch = title.includes(searchQuery) || summary.includes(searchQuery);
+                    const yearMatch = selectedYear === "all" || year === selectedYear;
+                    const categoryMatch = selectedCategory === "all" || category === selectedCategory;
+
+                    if (searchMatch && yearMatch && categoryMatch) {
+                        article.style.display = "block";
+                        resultsFound = true;
+                    } else {
+                        article.style.display = "none";
+                    }
+                });
+
+                if (resultsFound) {
+                    noResults.style.display = "none";
+                } else {
+                    noResults.style.display = "block";
+                }
+            }
+
+            searchInput.addEventListener("input", filterArticles);
+
+            archives.addEventListener("click", function(event) {
+                event.preventDefault();
+                archives.querySelectorAll("a").forEach(a => a.classList.remove("active"));
+                event.target.classList.add("active");
+                filterArticles();
+            });
+
+            categories.addEventListener("click", function(event) {
+                event.preventDefault();
+                categories.querySelectorAll("a").forEach(a => a.classList.remove("active"));
+                event.target.classList.add("active");
+                filterArticles();
+            });
+        });
+    </script>
 </body>
 </html>
