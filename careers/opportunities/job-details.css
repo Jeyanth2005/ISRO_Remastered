@@ -1,0 +1,71 @@
+/* --- JOB DETAILS PAGE CSS --- */
+
+.job-details-container {
+    background-color: #ffffff;
+    padding: 2rem 3rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+}
+
+.job-details-container h2 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: #004085;
+    font-size: 2.2rem;
+}
+
+.job-section {
+    margin-bottom: 2.5rem;
+}
+
+.job-section h3 {
+    font-size: 1.6rem;
+    color: #004085;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #ffa006;
+    padding-bottom: 0.5rem;
+}
+
+.job-section p, .job-section li {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.job-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    background-color: #f4f7fc;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2.5rem;
+}
+
+.info-item {
+    font-size: 1.1rem;
+}
+
+.info-item strong {
+    color: #004085;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.apply-section {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.apply-section p {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 0.5rem;
+}

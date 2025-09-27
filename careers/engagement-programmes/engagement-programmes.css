@@ -1,0 +1,179 @@
+/* --- ENGAGEMENT PROGRAMMES CSS (ENHANCED) --- */
+
+.programmes-container {
+    background-color: #ffffff;
+    padding: 2rem 3rem 3rem; /* Added more bottom padding */
+    border-radius: 12px; /* Slightly larger radius */
+    box-shadow: 0 8px 30px rgba(0, 64, 133, 0.08);
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+.programmes-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem 1rem;
+    background-color: #f8f9fa;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #023164;
+    font-size: 2.6rem;
+    font-weight: 707; /* Bolder heading */
+    border-bottom: 3px solid #ffa006; /* Thicker underline */
+    padding-bottom: 0.5rem;
+}
+
+.programmes-container h2 {
+    text-align: center;
+    margin-bottom: 3rem; /* Increased margin */
+    color: #004085;
+    font-size: 2.5rem;
+    font-weight: 700; /* Bolder heading */
+    border-bottom: 3px solid #ffa006; /* Thicker underline */
+    padding-bottom: 0.5rem;
+}
+
+.programme-card {
+    margin-bottom: 3rem;
+    padding: 2.5rem; /* Added padding to the card */
+    border: 1px solid #e9ecef; /* Subtle border */
+    border-radius: 8px;
+    background-color: #f8f9fa; /* Light background for each card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+.programme-card:nth-child(even) {
+    background-color: #ffffff; /* Alternating background colors */
+}
+
+.programme-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 64, 133, 0.1);
+}
+.programme-card + .programme-card {
+    margin-top: 2rem; /* Increased spacing between cards */
+}
+
+.programme-card:last-child {
+    margin-bottom: 0;
+}
+
+.programme-card h3 {
+    font-size: 2rem; /* Larger title */
+    color: #004085;
+    margin-bottom: 1rem;
+    font-weight: 700; /* Bolder title */
+}
+
+.programme-card h4 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-top: 2rem; /* More space above subheadings */
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #ffa006;
+    padding-bottom: 0.3rem;
+}
+.programme-card h4:first-of-type {
+    margin-top: 1.5rem; /* Less space if it's the first subheading */
+}
+.programme-card h4:last-of-type {
+    margin-bottom: 1.5rem; /* More space below the last subheading */
+}
+
+.programme-card p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555; /* Slightly lighter text for better readability */
+    margin-bottom: 1.5rem;
+}
+.programme-card p:last-of-type {
+    margin-bottom: 2rem; /* More space if it's the last paragraph */
+}
+
+.programme-card ul {
+    list-style: none; /* Removed default bullets */
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+.programme-card li {
+    margin-bottom: 0.75rem; /* Increased spacing */
+    padding-left: 1.8rem;
+    position: relative;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Custom styled bullet points */
+.programme-card li::before {
+    content: '✔'; /* Checkmark icon */
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: #FD7E14; /* Accent color */
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.programme-card .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    background-color: #ffffff; /* White background for contrast */
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    margin-bottom: 2rem;
+}
+
+.detail-item {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.detail-item strong {
+    color: #004085;
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.programme-card .how-to-apply {
+    margin-top: 2rem;
+    background-color: #e9ecef; /* Highlight the apply section */
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #ced4da;
+}
+
+.learn-more-btn {
+    display: inline-block;
+    background-color: #004085;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.learn-more-btn:hover {
+    background-color: #002752;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.learn-more-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.programme-card .how-to-apply p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
