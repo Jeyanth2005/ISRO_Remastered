@@ -1,0 +1,136 @@
+/* --- STUDENTS PAGE CSS --- */
+
+.programmes-container {
+    background-color: #ffffff;
+    padding: 2rem 3rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 64, 133, 0.08);
+    margin: 2rem auto;
+    max-width: 1200px;
+    width: 90%;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #023164;
+    font-size: 2.6rem;
+    font-weight: 700;
+    border-bottom: 3px solid #ffa006;
+    padding-bottom: 0.5rem;
+}
+.programmes-container h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #004085;
+    font-size: 2.5rem;
+    font-weight: 700;
+    border-bottom: 3px solid #ffa006;
+    padding-bottom: 0.5rem;
+}
+
+.programme-card {
+    margin-bottom: 3rem;
+    padding: 2.5rem;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.programme-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 64, 133, 0.1);
+}
+
+.programme-card h3 {
+    font-size: 2rem;
+    color: #004085;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+.programme-card:nth-child(even) {
+    background-color: #a6e37a;
+}
+.programme-card:last-child {
+    margin-bottom: 0;
+}
+
+.programme-card h4 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #ffa006;
+    padding-bottom: 0.3rem;
+    font-weight: 700;
+}
+
+.programme-card p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.programme-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+.programme-card li {
+    margin-bottom: 0.75rem;
+    padding-left: 1.8rem;
+    position: relative;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.programme-card li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: #FD7E14;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.programme-card + .programme-card {
+    margin-top: 3rem; /* Increased spacing between cards */
+}
+.programme-card:nth-child(even) {
+    background-color: #ffffff; /* Alternating background colors */
+}
+
+.apply-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #004085;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 64, 133, 0.1);
+    margin-top: 1rem;
+}   
+.apply-button:hover {
+    background-color: #002752;
+    box-shadow: 0 8px 15px rgba(0, 64, 133, 0.2);
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+.card-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+.card-link:hover .programme-card {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 64, 133, 0.1);
+}
+

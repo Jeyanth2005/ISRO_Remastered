@@ -1,0 +1,125 @@
+/* --- TRAINING PAGE CSS --- */
+
+.training-container {
+    background-color: #fdfdfd;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 50, 100, 0.1);
+    margin: 2rem auto;
+    max-width: 1200px;
+    width: 90%;
+}
+.training-container h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #002a5c;
+    font-size: 3rem;
+    font-weight: 800;
+    border-bottom: 4px solid #ffb300;
+    padding-bottom: 1rem;
+    display: inline-block;
+}
+.training-container h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #002a5c;
+    font-size: 2.8rem;
+    font-weight: 800;
+    border-bottom: 4px solid #ffb300;
+    padding-bottom: 1rem;
+    display: inline-block;
+}
+
+.training-card {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border-left: 5px solid #0056b3;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.training-card h3 {
+    font-size: 2.2rem;
+    color: #004085;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.training-card h4 {
+    font-size: 1.4rem;
+    color: #111;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #ffb300;
+    padding-bottom: 0.3rem;
+    font-weight: 602;
+}
+
+.training-card p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 1.5rem;
+}
+
+.training-card ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+.training-card ul li {
+    margin-bottom: 0.75rem;
+    padding-left: 1.8rem;
+    position: relative;
+    font-size: 1.2rem;
+    color: #eb9c9c;
+}
+
+.training-card li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.training-card li::before {
+    content: '🚀';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2rem;
+    color: #ffb300;
+}
+.training-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 64, 133, 0.1);
+}
+.training-card + .training-card {
+    margin-top: 2rem; /* Increased spacing between cards */
+}
+
+.training-card:nth-child(even) {
+    background-color: #cbecf1;
+}
+.training-card:last-child {
+    margin-bottom: 0;
+}
+
+.card-link {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 600;
+}
+.training-card + .training-card {
+    margin-top: 2.1rem; /* Increased spacing between cards */
+}
+
+.training-card:nth-child(even) {
+    background-color: #cbecf1;
+}
+.training-card:last-child {
+    margin-bottom: 0;
+}

@@ -1,277 +1,261 @@
-/* --- ULTRA-PREMIUM EDITORIAL ARTICLE CSS (REFINED & FIXED) --- */
+/* --- APEX IMMERSIVE ARTICLE CSS --- */
 
 /* 1. ROOT VARIABLES & TYPOGRAPHY */
 :root {
-    --font-heading: 'Source Sans 3', sans-serif;
-    --font-body: 'Source Serif 4', serif;
+    --font-heading: 'Exo 2', sans-serif;
+    --font-body: 'Source Serif Pro', serif;
 
-    --color-dark-blue: #0d2c4f;
-    --color-text-body: #2b2b2b;
-    --color-text-light: #666666;
-    --color-accent: #ff9d00;
-    --color-background: #fdfdfd;
-    --color-border: #e5e5e5;
+    --color-background: #0d1117; /* GitHub Dark Dimmed */
+    --color-surface: #161b22;
+    --color-text-primary: #e6edf3;
+    --color-text-secondary: #848d97;
+    --color-accent: #f78166; /* Orange Accent */
+    --color-border: #30363d;
 
-    --max-width: 760px;
-    --line-height-body: 1.9;
+    --max-width: 800px;
+    --line-height-body: 1.8;
 
-    --radius: 10px;
-    --transition-fast: 0.25s ease;
-    --transition-slow: 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    --radius: 6px;
+    --transition-main: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 /* 2. BASE STYLING */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--color-background);
-    color: var(--color-text-body);
+    color: var(--color-text-primary);
     font-family: var(--font-body);
     line-height: var(--line-height-body);
     font-size: 1.125rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    scroll-behavior: smooth;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
-
-/* Paragraph rhythm */
-p {
-    max-width: 68ch;
-    margin: 0 0 1.8rem; /* Changed to left-align paragraphs by default */
-    text-align: justify;
-    line-height: 1.75;
-    font-size: 1.1rem;
-}
-/* Center paragraphs within the header specifically */
-.header-content p {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
 
 /* 3. ARTICLE HEADER */
 .article-header {
-    background: linear-gradient(135deg, #ffffff 0%, #f7f9fb 100%);
-    border-bottom: 1px solid var(--color-border);
-    padding: 6rem 1rem 5rem;
-    margin-bottom: 4rem;
+    min-height: 80vh;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    padding: 5rem 1.5rem;
+    background: linear-gradient(180deg, var(--color-background) 80%, var(--color-surface) 100%);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
-/* Subtle animated gradient overlay */
-.article-header::after {
+/* Subtle animated starfield background */
+.article-header::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,160,6,0.07) 0%, transparent 70%);
-    animation: floatGlow 15s infinite linear;
-    pointer-events: none;
-    z-index: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+        radial-gradient(1px 1px at 20% 30%, #ffffff33, #ffffff00),
+        radial-gradient(1px 1px at 70% 60%, #ffffff33, #ffffff00),
+        radial-gradient(2px 2px at 40% 80%, #ffffff44, #ffffff00),
+        radial-gradient(2px 2px at 90% 20%, #ffffff44, #ffffff00);
+    animation: pan-stars 120s linear infinite;
 }
-@keyframes floatGlow {
-    0% { transform: translate(0,0); }
-    50% { transform: translate(10%,10%); }
-    100% { transform: translate(0,0); }
+
+@keyframes pan-stars {
+    from { background-position: 0 0; }
+    to { background-position: 1000px 500px; }
 }
 
 .header-content {
-    max-width: var(--max-width);
+    max-width: 950px;
     margin: 0 auto;
-    text-align: center;
     position: relative;
     z-index: 1;
+    animation: fade-in-up 1s var(--transition-main);
 }
 
 .article-title {
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 4.5vw, 3.8rem);
-    font-weight: 700;
-    color: var(--color-dark-blue);
-    line-height: 1.25;
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.6px;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.05;
+    margin-bottom: 2rem;
+    letter-spacing: -0.04em;
+    text-shadow: 0 5px 30px rgba(0,0,0,0.5);
 }
 
 .article-intro {
-    font-size: 1.35rem;
-    font-style: italic;
-    color: var(--color-text-light);
-    max-width: 85%;
+    font-size: 1.5rem;
+    color: var(--color-text-secondary);
+    max-width: 75%;
     margin: 0 auto;
-    line-height: 1.75;
-    font-weight: 500;
-    text-align: center;
+    line-height: 1.7;
+    font-weight: 400;
 }
 
 /* 4. MAIN CONTENT */
 .content-article {
     max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 1rem;
+    margin: -10vh auto 0; /* Pull content up into the header */
+    padding: 5rem 1.5rem;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 2rem;
+    text-align: justify;
+    font-size: 1.1rem;
+    color: var(--color-text-primary);
 }
 
 /* Section headings */
 .article-section h2 {
     font-family: var(--font-heading);
-    font-size: 2.3rem;
-    font-weight: 600;
-    color: var(--color-dark-blue);
-    margin: 4.5rem 0 1.6rem;
-    padding-bottom: 0.7rem;
-    border-bottom: 3px solid var(--color-accent);
-    letter-spacing: -0.4px;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 6rem 0 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
     position: relative;
-    /* FIX: Removed 'display: inline-block' to ensure it takes full width and aligns left */
 }
 
-/* Decorative accent dot */
-.article-section h2::after {
+/* Heading Accent Line */
+.article-section h2::before {
     content: '';
     position: absolute;
-    bottom: -6px;
     left: 0;
-    width: 12px;
-    height: 12px;
-    background: var(--color-accent);
-    border-radius: 50%;
+    bottom: -1px;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width var(--transition-main);
 }
+.article-section h2:hover::before {
+    width: 80px;
+}
+
 
 /* Sub-headings */
 .article-section h3 {
     font-family: var(--font-heading);
-    font-size: 1.55rem;
-    font-weight: 600;
-    color: var(--color-dark-blue);
-    margin: 2.5rem 0 1.2rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 3.5rem 0 1.5rem;
 }
 
 /* 5. LIST & LINKS */
 .article-section ul {
     list-style: none;
-    padding-left: 0;
-    margin: 2rem 0;
+    padding-left: 0.5rem;
+    margin: 2.5rem 0;
 }
 
 .article-section li {
-    padding-left: 2rem;
+    padding-left: 2.5rem;
     position: relative;
-    margin-bottom: 1.1rem;
-    font-size: 1.05rem;
-    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    font-size: 1.1rem;
 }
 
 .article-section li::before {
-    content: '▹';
+    content: '→';
     position: absolute;
     left: 0;
-    top: 0;
+    top: -2px;
+    font-size: 1.5em;
     color: var(--color-accent);
-    font-size: 1.4rem;
-    line-height: 1.2;
+    transition: transform 0.3s ease;
+}
+.article-section li:hover::before {
+    transform: translateX(10px);
 }
 
 a {
     color: var(--color-accent);
     text-decoration: none;
-    transition: color var(--transition-fast);
     font-weight: 600;
+    background-image: linear-gradient(to right, #ffae8a, var(--color-accent));
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    background-position: left 100%;
+    transition: background-size 0.4s ease;
 }
 a:hover {
-    color: var(--color-dark-blue);
-    text-decoration: underline;
+    background-size: 100% 2px;
 }
 
 /* 6. IMAGES & FIGURES */
 .article-image {
-    margin: 3.5rem auto;
-    width: 100%;
-    text-align: center;
+    margin: 5rem 0;
 }
 
 .article-image img {
     max-width: 100%;
     height: auto;
     border-radius: var(--radius);
+    display: block;
     border: 1px solid var(--color-border);
-    box-shadow: 0 8px 28px rgba(0,0,0,0.08);
-    transition: transform var(--transition-slow), box-shadow var(--transition-fast);
+    transition: var(--transition-main);
 }
 
-.article-image img:hover {
-    transform: scale(1.03);
-    box-shadow: 0 14px 36px rgba(0,0,0,0.15);
+.article-image:hover img {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px #00000088;
 }
 
 .article-image figcaption {
     font-size: 0.9rem;
-    color: var(--color-text-light);
+    color: var(--color-text-secondary);
+    text-align: center;
     margin-top: 1rem;
-    padding: 0 1rem;
-    font-style: italic;
 }
 
-/* Wide images */
+/* Special image layouts */
 .wide-image {
-    max-width: 1000px;
-    width: calc(100% + 90px);
-    margin-left: -45px;
+    width: 100%;
+    margin: 6rem auto;
 }
 
-/* Full breakout images */
 .breakout-image {
+    width: 100vw;
     max-width: 1200px;
-    width: 120vw;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-}
-.breakout-image img {
+    margin: 7rem 0;
     border-radius: 0;
     border-left: none;
     border-right: none;
 }
-
-/* 7. FOOTER */
-.main-footer {
-    margin-top: 6rem;
-    padding: 2.5rem 1rem;
-    background: var(--color-dark-blue);
-    color: #ffffff;
-    text-align: center;
-    font-size: 0.95rem;
-    letter-spacing: 0.3px;
-    line-height: 1.6;
-}
-.main-footer a {
-    color: var(--color-accent);
-    transition: color var(--transition-fast);
-}
-.main-footer a:hover {
-    color: #ffffff;
+.breakout-image img {
+    border-radius: 0;
 }
 
-/* 8. RESPONSIVE ENHANCEMENTS */
-@media (max-width: 900px) {
-    .wide-image {
-        width: 100%;
-        margin-left: 0;
+/* 7. ANIMATIONS */
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
+/* 8. RESPONSIVE DESIGN */
 @media (max-width: 768px) {
-    body { font-size: 1.05rem; }
-    .article-title { font-size: 2.3rem; }
-    .article-intro { font-size: 1.1rem; }
-    .article-header { padding: 3.5rem 1rem; }
-    
-    .breakout-image {
-        width: 100vw;
-    }
+    .article-title { font-size: 3rem; }
+    .article-intro { font-size: 1.25rem; max-width: 100%; }
+    .content-article { margin-top: -15vh; padding: 3rem 1rem;}
 }
