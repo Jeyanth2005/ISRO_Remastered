@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="home.css">
 </head>
+
 <body>
     <header class="main-header">
         <div class="container header-flex">
@@ -78,28 +79,53 @@
 
         <section id="missions" class="container content-section">
             <h2>Major Achievements</h2>
-            <div class="missions-grid">
-                <a href="../articles/chandrayaan-article.html" class="mission-link">
-                    <div class="mission-card">
-                        <img src="../images/missions/chandrayaan.png" alt="Chandrayaan Mission">
-                        <h3>Chandrayaan-3</h3>
-                        <p>India's lunar exploration program, consisting of a series of missions to the Moon.</p>
+            <div class="article-slider">
+                <button class="slider-arrow prev" aria-label="Previous slide">&#8249;</button>
+                <button class="slider-arrow next" aria-label="Next slide">&#8250;</button>
+                <div class="article-container" style="transform: translateX(-33.33%);">
+                    <div class="article-wrapper">
+                        <a href="../articles/chandrayaan-article.html" class="mission-card">
+                            <img src="../images/missions/chandrayaan.png" alt="Chandrayaan Mission">
+                            <h3>Chandrayaan-3</h3>
+                            <p>India's historic lunar landing mission that successfully achieved a soft landing on the Moon's south pole region, making India the fourth country to land on the Moon.</p>
+                        </a>
                     </div>
-                </a>
-                <a href="../articles/mangalyaan-article.html" class="mission-link">
-                    <div class="mission-card">
-                        <img src="../images/missions/mangalyaan.png" alt="Mangalyaan Mission">
-                        <h3>Mangalyaan</h3>
-                        <p>India's first interplanetary mission, the Mars Orbiter Mission (MOM).</p>
+                    <div class="article-wrapper">
+                        <a href="../articles/mangalyaan-article.html" class="mission-card">
+                            <img src="../images/missions/mangalyaan.png" alt="Mangalyaan Mission">
+                            <h3>Mangalyaan (MOM)</h3>
+                            <p>India's first interplanetary mission that successfully reached Mars orbit on its first attempt, demonstrating ISRO's capability in deep space missions.</p>
+                        </a>
                     </div>
-                </a>
-                <a href="../articles/gslv-article.html" class="mission-link">
-                    <div class="mission-card">
-                        <img src="../images/missions/gslv.png" alt="GSLV Rocket">
-                        <h3>GSLV</h3>
-                        <p>The Geosynchronous Satellite Launch Vehicle, used to launch satellites into geostationary orbit.</p>
+                    <div class="article-wrapper">
+                        <a href="../articles/gslv-article.html" class="mission-card">
+                            <img src="../images/missions/gslv.png" alt="GSLV Rocket">
+                            <h3>LVM3 (GSLV Mk III)</h3>
+                            <p>India's most powerful rocket, capable of launching 4-ton class satellites to Geosynchronous Transfer Orbit (GTO).</p>
+                        </a>
                     </div>
-                </a>
+                    <div class="article-wrapper">
+                        <a href="../articles/astrosat-article.html" class="mission-card">
+                            <img src="../images/mission-icons/science.png" alt="AstroSat">
+                            <h3>AstroSat</h3>
+                            <p>India's first dedicated multi-wavelength space observatory, studying celestial sources in X-ray, optical and UV spectral bands simultaneously.</p>
+                        </a>
+                    </div>
+                    <div class="article-wrapper">
+                        <a href="../articles/gaganyaan-article.html" class="mission-card">
+                            <img src="../images/missions/humans/Gaganyaan.png" alt="Gaganyaan">
+                            <h3>Gaganyaan</h3>
+                            <p>India's first human spaceflight program, aiming to demonstrate human spaceflight capability by launching a crew of 3 to an orbit of 400 km.</p>
+                        </a>
+                    </div>
+                    <div class="article-wrapper">
+                        <a href="../articles/nisar-article.html" class="mission-card">
+                            <img src="../images/mission-icons/technology.png" alt="NISAR">
+                            <h3>NISAR</h3>
+                            <p>A joint Earth-observing mission between NASA and ISRO, designed to measure Earth's changing ecosystems and dynamic surfaces.</p>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -127,5 +153,6 @@
     </footer>
 
     <script src="../script.js"></script>
+    <script src="slider.js"></script>
 </body>
 </html>
