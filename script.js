@@ -1,41 +1,56 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- Simple Dropdown Logic for Testing ---
+    // --- Dropdown Logic ---
     const missionsButton = document.getElementById('missions-btn');
     const missionsMenu = document.getElementById('missions-menu');
-    
     const newsButton = document.getElementById('news-btn');
     const newsMenu = document.getElementById('news-menu');
+    const careersButton = document.getElementById('careers-btn');
+    const careersMenu = document.getElementById('careers-menu');
 
-    // Function to close all menus
     function closeAllMenus() {
-        missionsMenu.classList.remove('is-active');
-        newsMenu.classList.remove('is-active');
+        if(missionsMenu) missionsMenu.classList.remove('is-active');
+        if(newsMenu) newsMenu.classList.remove('is-active');
+        if(careersMenu) careersMenu.classList.remove('is-active');
     }
 
-    // Event listener for the Missions button
-    missionsButton.addEventListener('click', function(event) {
-        event.stopPropagation(); // Prevents the click from closing the menu immediately
-        const isActive = missionsMenu.classList.contains('is-active');
-        closeAllMenus(); // Close other menus
-        if (!isActive) {
-            missionsMenu.classList.add('is-active'); // Open this menu if it was closed
+    function setupDropdown(button, menu) {
+        if (button && menu) {
+            button.addEventListener('click', function(event) {
+                event.stopPropagation();
+                const isActive = menu.classList.contains('is-active');
+                closeAllMenus();
+                if (!isActive) {
+                    menu.classList.add('is-active');
+                }
+            });
         }
-    });
+    }
 
-    // Event listener for the News button
-    newsButton.addEventListener('click', function(event) {
-        event.stopPropagation(); // Prevents the click from closing the menu immediately
-        const isActive = newsMenu.classList.contains('is-active');
-        closeAllMenus(); // Close other menus
-        if (!isActive) {
-            newsMenu.classList.add('is-active'); // Open this menu if it was closed
-        }
-    });
-
-    // Add a global click listener to close menus when clicking anywhere else
+    setupDropdown(missionsButton, missionsMenu);
+    setupDropdown(newsButton, newsMenu);
+    setupDropdown(careersButton, careersMenu);
+    
     document.addEventListener('click', function() {
         closeAllMenus();
     });
 
+    // --- Search Functionality ---
+    const searchForm = document.querySelector('.search-form');
+    const searchInput = document.querySelector('.search-input');
+    const logoLink = document.querySelector('.logo a');
+
+    if (searchForm && logoLink) {
+        searchForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const query = searchInput.value.trim();
+            if (query) {
+                // Get the base path from the dynamically generated logo link
+                const homePath = logoLink.getAttribute('href'); 
+                const searchPagePath = homePath.replace('home.html', 'search-results.html');
+                
+                window.location.href = `${searchPagePath}?q=${encodeURIComponent(query)}`;
+            }
+        });
+    }
 });

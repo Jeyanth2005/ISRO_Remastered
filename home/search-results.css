@@ -1,0 +1,100 @@
+/* --- PROFESSIONAL SEARCH RESULTS CSS --- */
+
+/* Hero Section */
+.careers-hero {
+    background-color: #004085;
+    color: white;
+    padding: 4rem 1rem;
+    text-align: center;
+    margin-bottom: 2.1rem;
+    box-shadow: 0 4px 15px rgba(202, 235, 82, 0.1);
+}
+
+.careers-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(211, 218, 64, 0.2);
+}
+
+/* Container */
+.careers-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2.1rem;
+    background: #f9f9f9;
+}
+
+#search-query {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #004085;
+    font-size: 1.5rem;
+    font-weight: 510;
+}
+
+#search-query span {
+    font-weight: bold;
+    color: #ffa006;
+    font-size: 1.7rem;
+}
+
+/* Search Results */
+.result-item {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-left: 5px solid #004085;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(8, 209, 152, 0.1);
+    cursor: pointer;
+}
+
+.result-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.result-item h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #004085;
+    font-size: 1.6rem;
+}
+
+.result-item a {
+    text-decoration: none;
+    color: #004085;
+    font-size: 1.25rem;
+    transition: color 0.3s;
+}
+
+.result-item a:hover {
+    color: #ffa006;
+    text-decoration: underline;
+}
+
+.result-item p {
+    margin-bottom: 0;
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+#no-results {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: #f4f7fc;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(14, 124, 132, 0.1);
+}
+
+#no-results h3 {
+    color: #004085;
+    margin-bottom: 0.5rem;
+    font-size: 1.9rem;
+}
