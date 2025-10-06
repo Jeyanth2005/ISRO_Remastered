@@ -1,270 +1,230 @@
-/* --- CELESTIAL LIGHT ARTICLE THEME --- */
-
-/* 1. ROOT VARIABLES & TYPOGRAPHY */
-:root {
-    --font-heading: 'Space Grotesk', sans-serif;
-    --font-body: 'Roboto', sans-serif;
-
-    --color-background: #FFFFFF;
-    --color-surface: #F8F9FA;
-    --color-primary: #004085; /* ISRO Blue */
-    --color-text-body: #212529;
-    --color-text-secondary: #6c757d;
-    --color-accent: #FD7E14; /* Vibrant Orange */
-    --color-border: #E9ECEF;
-
-    --content-width: 1070px;
-    --line-height-body: 1.8;
-
-    --radius: 12px;
-    --transition-main: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+/* General Article Styling */
+.article-wrapper {
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    line-height: 1.7;
 }
 
-/* 2. BASE STYLING */
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background-color: var(--color-background);
-    color: var(--color-text-body);
-    font-family: var(--font-body);
-    line-height: var(--line-height-body);
-    font-size: 18px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-
-/* 3. ARTICLE HEADER */
+/* Header Section */
 .article-header {
-    background-color: var(--color-surface);
-    padding: 32px 32px 32px;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 60px 40px;
     text-align: center;
-    border-bottom: 1px solid var(--color-border);
     position: relative;
     overflow: hidden;
+    border-bottom: 5px solid #ffa006;
 }
 
 .article-header::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-image:
-        radial-gradient(circle at 15% 50%, #00408508, transparent 30%),
-        radial-gradient(circle at 85% 40%, #FD7E1408, transparent 30%);
-    opacity: 0.5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/header-bg-pattern.png') repeat;
+    opacity: 0.1;
+    z-index: 0;
 }
 
 .header-content {
-    max-width: 1400px;
-    margin: 0 auto;
     position: relative;
-    animation: fadeInUp 1s ease-out;
+    z-index: 1;
 }
 
 .article-title {
-    font-family: var(--font-heading);
-    font-size: clamp(48px, 1vw, 80px);
-    font-weight: 400;
-    color: var(--color-primary);
-    line-height: 1.1;
-    margin-bottom: 2rem;
-    letter-spacing: -0.03em;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
 .article-intro {
-    font-size: 22.4px;
-    color: var(--color-text-secondary);
-    max-width: 80%;
+    font-size: 1.2em;
+    max-width: 800px;
     margin: 0 auto;
-    font-weight: 400;
+    line-height: 1.6;
+    opacity: 0.9;
 }
 
-/* 4. MAIN CONTENT */
+/* Article Body */
 .content-article {
-    max-width: var(--content-width);
-    margin: 80px auto;
-    /* padding: 0 0.25rem; */
+    padding: 40px;
 }
 
-/* Paragraphs */
-p {
-    margin-bottom: 32px;
-    text-align: justify;
-    /* font-size: 1.3rem; */
-    font-size: 19.5px;
+.article-section {
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px dashed #e0e0e0;
 }
 
-/* Section headings */
-.article-section h2 {
-    font-family: var(--font-heading);
-    font-size: 40px;
-    font-weight: 700;
-    color: var(--color-primary);
-    margin: 80px 0 32px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid var(--color-border);
-    letter-spacing: -0.02em;
+.article-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
-/* Sub-headings */
-.article-section h3 {
-    font-family: var(--font-heading);
-    font-size: 28.8px;
-    font-weight: 600;
-    color: var(--color-primary);
-    margin: 56px 0 24px;
-}
-
-/* 5. LIST & LINKS */
-.article-section ul {
-    list-style: none;
-    padding-left: 8px;
-    margin: 40px 0;
-    font-size: 15.2px; /* Same as p */
-}
-
-.article-section li {
-    padding-left: 40px;
+h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.2em;
+    color: #004085;
+    margin-bottom: 25px;
     position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background-color: #ffa006;
+    border-radius: 2px;
+}
+
+h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.6em;
+    color: #2a5298;
+    margin-top: 35px;
+    margin-bottom: 18px;
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 1.05em;
+    line-height: 1.8;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
     margin-bottom: 20px;
 }
 
-.article-section li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 9.6px;
-    width: 12px;
-    height: 12px;
-    background-color: var(--color-accent);
-    border-radius: 2px;
-    transform: rotate(45deg);
-    transition: transform 0.3s ease;
-}
-.article-section li:hover::before {
-    transform: rotate(135deg);
-}
-
-
-a {
-    color: var(--color-accent);
-    text-decoration: none;
-    font-weight: 700;
+ul li {
     position: relative;
-    transition: color 0.3s ease;
-}
-a::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background: var(--color-accent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform var(--transition-main);
-}
-a:hover {
-    color: var(--color-primary);
-}
-a:hover::after {
-    transform: scaleX(1);
+    padding-left: 25px;
+    margin-bottom: 10px;
+    font-size: 1.05em;
+    line-height: 1.6;
 }
 
-/* 6. IMAGES & FIGURES */
+ul li::before {
+    content: '★'; /* Star icon */
+    color: #ffa006;
+    position: absolute;
+    left: 0;
+    font-size: 1.1em;
+    line-height: 1;
+}
+
+/* Image Styling and Alignment */
 .article-image {
-    margin: 80px 0;
+    margin: 40px auto; /* Centering block images */
+    display: block; /* Ensure it behaves as a block for margin auto to work */
+    max-width: 100%; /* Ensure images are responsive */
+    height: auto;
+    text-align: center; /* Center the caption */
 }
 
 .article-image img {
     max-width: 100%;
     height: auto;
-    border-radius: var(--radius);
-    display: block;
-    border: 1px solid var(--color-border);
-    transition: box-shadow var(--transition-main), transform var(--transition-main);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
 }
 
-.article-image:hover img {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+.article-image img:hover {
+    transform: scale(1.02);
 }
 
 .article-image figcaption {
-    font-size: 15.2px;
-    color: var(--color-text-secondary);
-    text-align: center;
-    margin-top: 24px;
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 10px;
+    line-height: 1.4;
 }
 
-/* Special image layouts */
-.wide-image {
-    max-width: calc(var(--content-width) + 200px);
-    width: 100%;
-    margin: 96px auto;
+/* Specific image sizes/alignments if needed */
+.article-image.wide-image img {
+    max-width: 90%; /* Slightly wider image */
 }
 
-.breakout-image {
-    width: 100vw;
-    max-width: 100%;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 112px 0;
-}
-.breakout-image img {
-    border-radius: 0;
+.article-image.breakout-image {
+    margin-left: -60px; /* Example of image breaking out of content flow */
+    margin-right: -60px;
+    max-width: calc(100% + 120px); /* Adjust based on desired breakout */
 }
 
-/* 7. ANIMATIONS */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+
+/* Blockquotes */
+blockquote {
+    background-color: #f8f8f8;
+    border-left: 5px solid #ffa006;
+    padding: 20px 30px;
+    margin: 30px 0;
+    font-style: italic;
+    color: #555;
+    font-size: 1.1em;
+    line-height: 1.6;
+    border-radius: 4px;
 }
 
-/* 8. RESPONSIVE DESIGN */
+blockquote p {
+    margin-bottom: 10px;
+}
+
+blockquote cite {
+    display: block;
+    margin-top: 15px;
+    text-align: right;
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .article-title {
-        font-size: 44.8px;
+        font-size: 2em;
     }
 
-    .article-intro {
-        font-size: 19.2px;
+    h2 {
+        font-size: 1.8em;
     }
 
-    .content-article, .article-header {
-        padding-left: 16px;
-        padding-right: 16px;
+    h3 {
+        font-size: 1.4em;
+    }
+
+    .article-header {
+        padding: 40px 20px;
+    }
+
+    .content-article {
+        padding: 20px;
+    }
+
+    .article-image.breakout-image {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100%;
     }
 }
 
 @media (max-width: 480px) {
     .article-title {
-        font-size: 36px;
-    }
-
-    .article-intro {
-        font-size: 16px;
-    }
-
-    .article-section h2 {
-        font-size: 32px;
-    }
-
-    .article-section h3 {
-        font-size: 24px;
+        font-size: 1.6em;
     }
 }
-

@@ -20,32 +20,74 @@
         </section>
 
         <div class="news-container">
-            <h2>Engage with ISRO: Workshops, Seminars, and Public Events</h2>
-            <p>Join us at our upcoming events to learn more about India's space program, interact with our scientists, and get a closer look at the technologies that are taking us to the stars.</p>
+            <div class="news-layout">
+                <div class="article-list">
+                    <h2>Engage with ISRO: Workshops, Seminars, and Public Events</h2>
+                    <p>Join us at our upcoming events to learn more about India's space program, interact with our scientists, and get a closer look at the technologies that are taking us to the stars.</p>
 
-            <div class="article-list">
-                <article class="article-item">
-                    <div class="item-date">November 22-24, 2025</div>
-                    <h2 class="item-title"><a href="#">National Space Science Symposium</a></h2>
-                    <p class="item-summary">ISRO is proud to host the National Space Science Symposium, bringing together scientists, engineers, and students from across the country to discuss the latest advancements in space science and technology. The event will be held at the U R Rao Satellite Centre, Bengaluru.</p>
-                </article>
+                    <article class="article-item">
+                        <div class="item-date">November 22-24, 2025</div>
+                        <h2 class="item-title"><a href="space-science-symposium.html">National Space Science Symposium</a></h2>
+                        <p class="item-summary">ISRO is proud to host the National Space Science Symposium, bringing together scientists, engineers, and students from across the country to discuss the latest advancements in space science and technology. The event will be held at the U R Rao Satellite Centre, Bengaluru.</p>
+                    </article>
 
-                <article class="article-item">
-                    <div class="item-date">December 05, 2025</div>
-                    <h2 class="item-title"><a href="#">Public Viewing of G1 Mission Launch</a></h2>
-                    <p class="item-summary">Witness history in the making! A public viewing gallery will be open at the Satish Dhawan Space Centre for the launch of the first uncrewed Gaganyaan test flight (G1). Registration details will be announced shortly.</p>
-                </article>
-                
-                <article class="article-item">
-                    <div class="item-date">January 12-14, 2026</div>
-                    <h2 class="item-title"><a href="#">Indian Science Congress - Space Pavilion</a></h2>
-                    <p class="item-summary">Visit the ISRO pavilion at the annual Indian Science Congress. Explore interactive exhibits, scale models of our rockets and satellites, and participate in hands-on activities designed for all ages.</p>
-                </article>
+                    <article class="article-item">
+                        <div class="item-date">December 05, 2025</div>
+                        <h2 class="item-title"><a href="g1-mission-viewing.html">Public Viewing of G1 Mission Launch</a></h2>
+                        <p class="item-summary">Witness history in the making! A public viewing gallery will be open at the Satish Dhawan Space Centre for the launch of the first uncrewed Gaganyaan test flight (G1). Registration details will be announced shortly.</p>
+                    </article>
+                    
+                    <article class="article-item">
+                        <div class="item-date">January 12-14, 2026</div>
+                        <h2 class="item-title"><a href="indian-science-congress.html">Indian Science Congress - Space Pavilion</a></h2>
+                        <p class="item-summary">Visit the ISRO pavilion at the annual Indian Science Congress. Explore interactive exhibits, scale models of our rockets and satellites, and participate in hands-on activities designed for all ages.</p>
+                    </article>
+                     <div id="no-results" style="display: none; padding: 2rem; text-align: center;">
+                        <h3>No events match your search.</h3>
+                        <p>Please try a different keyword.</p>
+                    </div>
+                </div>
+                <aside class="sidebar">
+                     <div class="sidebar-widget">
+                        <h3 class="widget-title">Search Events</h3>
+                        <form class="search-bar" role="search" onsubmit="return false;">
+                            <input type="search" id="searchInput" placeholder="Search events...">
+                        </form>
+                    </div>
+                </aside>
             </div>
         </div>
     </main>
 
     <footer class="main-footer">
         </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const searchInput = document.getElementById("searchInput");
+            const articles = document.querySelectorAll(".article-item");
+            const noResults = document.getElementById("no-results");
+
+            function filterArticles() {
+                const searchQuery = searchInput.value.toLowerCase().trim();
+                let resultsFound = false;
+
+                articles.forEach(article => {
+                    const title = article.querySelector(".item-title").textContent.toLowerCase();
+                    const summary = article.querySelector(".item-summary").textContent.toLowerCase();
+
+                    if (title.includes(searchQuery) || summary.includes(searchQuery)) {
+                        article.style.display = "block";
+                        resultsFound = true;
+                    } else {
+                        article.style.display = "none";
+                    }
+                });
+
+                noResults.style.display = resultsFound ? "none" : "block";
+            }
+            
+            searchInput.addEventListener("keyup", filterArticles);
+        });
+    </script>
 </body>
 </html>

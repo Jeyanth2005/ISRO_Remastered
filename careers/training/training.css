@@ -1,125 +1,125 @@
-/* --- TRAINING PAGE CSS --- */
+/* --- MODERN TRAINING PAGE CSS --- */
 
-.training-container {
-    background-color: #fdfdfd;
-    padding: 3rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0, 50, 100, 0.1);
-    margin: 2rem auto;
-    max-width: 1200px;
-    width: 90%;
-}
-.training-container h1 {
+/* 1. Hero Section */
+.careers-hero {
+    background: linear-gradient(135deg, #004085 0%, #002752 100%);
+    padding: 5rem 1rem;
+    border-bottom: 4px solid #ffa006;
     text-align: center;
-    margin-bottom: 2rem;
-    color: #002a5c;
-    font-size: 3rem;
-    font-weight: 800;
-    border-bottom: 4px solid #ffb300;
-    padding-bottom: 1rem;
-    display: inline-block;
+    color: white;
 }
+
+.careers-hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    margin: 0;
+}
+
+/* 2. Main Content Container */
+.training-container {
+    background-color: #ffffff;
+    padding: 3rem 4rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 64, 133, 0.08);
+    margin: 3rem auto;
+    max-width: 1100px;
+}
+
+/* 3. Container Heading */
 .training-container h2 {
     text-align: center;
-    margin-bottom: 3rem;
-    color: #002a5c;
+    font-family: 'Space Grotesk', sans-serif;
+    color: #004085;
     font-size: 2.8rem;
-    font-weight: 800;
-    border-bottom: 4px solid #ffb300;
+    font-weight: 700;
+    margin: 0 auto 3.5rem auto;
+    border-bottom: 4px solid #ffa006;
     padding-bottom: 1rem;
-    display: inline-block;
+    display: table;
 }
 
+/* 4. Training Card Styling */
 .training-card {
-    margin-bottom: 3rem;
-    padding: 2rem;
-    border-radius: 10px;
-    background-color: #ffffff;
-    border-left: 5px solid #0056b3;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-left: 5px solid #004085;
+    padding: 2.5rem 3rem;
+    border-radius: 12px;
+    margin-bottom: 2.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
 }
 
+.training-card:last-child {
+    margin-bottom: 0;
+}
+
+/* 5. Card Hover Effects */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card-link:hover .training-card {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 64, 133, 0.15);
+    border-left-color: #ffa006;
+}
+
+/* 6. Card Content Typography */
 .training-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 2.2rem;
     color: #004085;
-    margin-bottom: 1rem;
-    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 1.2rem;
 }
 
 .training-card h4 {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 1.4rem;
-    color: #111;
-    margin-top: 1.5rem;
+    color: #212529;
+    margin-top: 2.5rem;
     margin-bottom: 1rem;
-    border-bottom: 2px solid #ffb300;
-    padding-bottom: 0.3rem;
-    font-weight: 602;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+    font-weight: 600;
 }
 
 .training-card p {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #444;
+    color: #555;
     margin-bottom: 1.5rem;
 }
 
+/* 7. Custom List Styling */
 .training-card ul {
-    list-style-type: none;
+    list-style: none;
     padding-left: 0;
-    margin-bottom: 1.5rem;
-}
-.training-card ul li {
-    margin-bottom: 0.75rem;
-    padding-left: 1.8rem;
-    position: relative;
-    font-size: 1.2rem;
-    color: #eb9c9c;
+    margin: 2rem 0;
 }
 
 .training-card li {
-    margin-bottom: 0.5rem;
-    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    padding-left: 2.5rem;
     position: relative;
     font-size: 1.1rem;
-    color: #555;
+    color: #333;
 }
 
 .training-card li::before {
-    content: '🚀';
+    content: '🎓'; /* Graduation cap emoji */
     position: absolute;
     left: 0;
-    top: 0;
-    font-size: 1.2rem;
-    color: #ffb300;
-}
-.training-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0, 64, 133, 0.1);
-}
-.training-card + .training-card {
-    margin-top: 2rem; /* Increased spacing between cards */
+    top: -2px;
+    font-size: 1.5rem;
+    color: #004085;
+    transition: transform 0.3s ease;
 }
 
-.training-card:nth-child(even) {
-    background-color: #cbecf1;
-}
-.training-card:last-child {
-    margin-bottom: 0;
-}
-
-.card-link {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: 600;
-}
-.training-card + .training-card {
-    margin-top: 2.1rem; /* Increased spacing between cards */
-}
-
-.training-card:nth-child(even) {
-    background-color: #cbecf1;
-}
-.training-card:last-child {
-    margin-bottom: 0;
+.card-link:hover .training-card li::before {
+    transform: scale(1.2);
 }

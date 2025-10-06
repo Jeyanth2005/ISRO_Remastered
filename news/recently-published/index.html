@@ -24,29 +24,34 @@
                 <div class="article-list">
                     <article class="article-item">
                         <div class="item-date">September 26, 2025</div>
-                        <h2 class="item-title"><a href="#">Chandrayaan-4 Mission to Bring Back Lunar Samples</a></h2>
+                        <h2 class="item-title"><a href="chandrayaan-4-mission.html">Chandrayaan-4 Mission to Bring Back Lunar Samples</a></h2>
                         <p class="item-summary">ISRO has announced its ambitious Chandrayaan-4 mission, which will aim to collect samples from the lunar surface and return them to Earth for detailed analysis.</p>
                     </article>
                     
                     <article class="article-item">
                         <div class="item-date">September 15, 2025</div>
-                        <h2 class="item-title"><a href="#">ISRO to Launch 36 OneWeb Satellites</a></h2>
+                        <h2 class="item-title"><a href="oneweb-launch.html">ISRO to Launch 36 OneWeb Satellites</a></h2>
                         <p class="item-summary">In a commercial launch, ISRO is set to launch 36 satellites for the UK-based company OneWeb, further solidifying its position in the global satellite launch market.</p>
                     </article>
 
                     <article class="article-item">
                         <div class="item-date">August 29, 2025</div>
-                        <h2 class="item-title"><a href="#">Aditya-L1 Captures Stunning Images of Solar Flares</a></h2>
+                        <h2 class="item-title"><a href="aditya-l1-flares.html">Aditya-L1 Captures Stunning Images of Solar Flares</a></h2>
                         <p class="item-summary">India's solar observatory, Aditya-L1, has captured high-resolution images of recent solar flares, providing valuable data for space weather research.</p>
                     </article>
+                    
+                    <div id="no-results" style="display: none; padding: 2rem; text-align: center;">
+                        <h3>No articles match your search.</h3>
+                        <p>Please try a different keyword.</p>
+                    </div>
 
                 </div>
 
                 <aside class="sidebar">
                     <div class="sidebar-widget">
                         <h3 class="widget-title">Search</h3>
-                        <form class="search-bar" role="search">
-                            <input type="search" id="searchInput" placeholder="Search news...">
+                        <form class="search-bar" role="search" onsubmit="return false;">
+                            <input type="search" id="searchInput" placeholder="Search articles...">
                         </form>
                     </div>
                 </aside>
@@ -57,5 +62,34 @@
     <footer class="main-footer">
         </footer>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const searchInput = document.getElementById("searchInput");
+            const articles = document.querySelectorAll(".article-item");
+            const noResults = document.getElementById("no-results");
+
+            function filterArticles() {
+                const searchQuery = searchInput.value.toLowerCase().trim();
+                let resultsFound = false;
+
+                articles.forEach(article => {
+                    const title = article.querySelector(".item-title").textContent.toLowerCase();
+                    const summary = article.querySelector(".item-summary").textContent.toLowerCase();
+
+                    if (title.includes(searchQuery) || summary.includes(searchQuery)) {
+                        article.style.display = "block";
+                        resultsFound = true;
+                    } else {
+                        article.style.display = "none";
+                    }
+                });
+
+                noResults.style.display = resultsFound ? "none" : "block";
+            }
+
+            // Filter on keyup
+            searchInput.addEventListener("keyup", filterArticles);
+        });
+    </script>
 </body>
 </html>

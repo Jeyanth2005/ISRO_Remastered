@@ -24,37 +24,42 @@
                 <div class="article-list">
                     <article class="article-item">
                         <div class="item-date">October 10, 2025</div>
-                        <h2 class="item-title"><a href="#">Behind the Scenes: The Making of a Mars Rover</a></h2>
+                        <h2 class="item-title"><a href="making-of-a-mars-rover.html">Behind the Scenes: The Making of a Mars Rover</a></h2>
                         <p class="item-summary">A deep dive into the engineering challenges and triumphs of building a rover destined for the Red Planet. From material selection to software testing, learn what it takes to prepare for an interplanetary journey.</p>
                     </article>
 
                     <article class="article-item">
                         <div class="item-date">September 30, 2025</div>
-                        <h2 class="item-title"><a href="#">A Day in the Life of a Launch Director</a></h2>
+                        <h2 class="item-title"><a href="day-in-the-life-launch-director.html">A Day in the Life of a Launch Director</a></h2>
                         <p class="item-summary">Ever wondered what goes on in the control room during a rocket launch? Our Launch Director for the PSLV-C58 mission walks us through the intense preparations and the final countdown.</p>
                     </article>
                     
                     <article class="article-item">
                         <div class="item-date">September 18, 2025</div>
-                        <h2 class="item-title"><a href="#">The Science of Cryogenics: Fueling Our Future</a></h2>
+                        <h2 class="item-title"><a href="science-of-cryogenics.html">The Science of Cryogenics: Fueling Our Future</a></h2>
                         <p class="item-summary">Cryogenic engines are the powerhouse behind our heavy-lift rockets. This blog post explains the complex science of super-cooled propellants and why they are essential for our most ambitious missions.</p>
                     </article>
+                    
+                    <div id="no-results" style="display: none; padding: 2rem; text-align: center;">
+                        <h3>No blogs match your search.</h3>
+                        <p>Please try a different keyword.</p>
+                    </div>
 
                 </div>
 
                 <aside class="sidebar">
                     <div class="sidebar-widget">
                         <h3 class="widget-title">Search</h3>
-                        <form class="search-bar" role="search">
-                            <input type="search" placeholder="Search blogs...">
+                        <form class="search-bar" role="search" onsubmit="return false;">
+                            <input type="search" id="searchInput" placeholder="Search blogs...">
                         </form>
                     </div>
                     <div class="sidebar-widget">
                         <h3 class="widget-title">Recent Posts</h3>
                         <ul class="widget-list">
-                            <li><a href="#">Making of a Mars Rover</a></li>
-                            <li><a href="#">A Day as a Launch Director</a></li>
-                            <li><a href="#">The Science of Cryogenics</a></li>
+                            <li><a href="making-of-a-mars-rover.html">Making of a Mars Rover</a></li>
+                            <li><a href="day-in-the-life-launch-director.html">A Day as a Launch Director</a></li>
+                            <li><a href="science-of-cryogenics.html">The Science of Cryogenics</a></li>
                         </ul>
                     </div>
                 </aside>
@@ -64,5 +69,35 @@
 
     <footer class="main-footer">
         </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const searchInput = document.getElementById("searchInput");
+            const articles = document.querySelectorAll(".article-item");
+            const noResults = document.getElementById("no-results");
+
+            function filterArticles() {
+                const searchQuery = searchInput.value.toLowerCase().trim();
+                let resultsFound = false;
+
+                articles.forEach(article => {
+                    const title = article.querySelector(".item-title").textContent.toLowerCase();
+                    const summary = article.querySelector(".item-summary").textContent.toLowerCase();
+
+                    if (title.includes(searchQuery) || summary.includes(searchQuery)) {
+                        article.style.display = "block";
+                        resultsFound = true;
+                    } else {
+                        article.style.display = "none";
+                    }
+                });
+
+                noResults.style.display = resultsFound ? "none" : "block";
+            }
+
+            // Filter on keyup
+            searchInput.addEventListener("keyup", filterArticles);
+        });
+    </script>
 </body>
 </html>

@@ -20,29 +20,75 @@
         </section>
 
         <div class="news-container">
-            <h2>Monthly Updates from the Indian Space Research Organisation</h2>
-            <p>Stay connected with the latest happenings at ISRO. Our monthly newsletters provide a comprehensive look at our missions, technological advancements, and outreach programs.</p>
+            <div class="news-layout">
+                <div class="article-list">
+                    <h2>Monthly Updates from the Indian Space Research Organisation</h2>
+                    <p>Stay connected with the latest happenings at ISRO. Our monthly newsletters provide a comprehensive look at our missions, technological advancements, and outreach programs.</p>
 
-            <div class="article-list">
-                <article class="article-item">
-                    <h2 class="item-title"><a href="#">Cosmic Chronicles: September 2025 Edition</a></h2>
-                    <p class="item-summary">This month's issue covers the successful launch of PSLV-C58, new findings from the Aditya-L1 solar observatory, and a feature on our student outreach initiatives.</p>
-                </article>
+                    <article class="article-item">
+                        <h2 class="item-title"><a href="september-2025-newsletter.html">Cosmic Chronicles: September 2025 Edition</a></h2>
+                        <p class="item-summary">This month's issue covers the successful launch of PSLV-C58, new findings from the Aditya-L1 solar observatory, and a feature on our student outreach initiatives.</p>
+                    </article>
 
-                <article class="article-item">
-                    <h2 class="item-title"><a href="#">Orbital Outlook: August 2025 Edition</a></h2>
-                    <p class="item-summary">A look back at the final preparations for the Aditya-L1 mission, updates on the Gaganyaan astronaut training program, and a spotlight on our Earth observation satellite data applications.</p>
-                </article>
-                
-                <article class="article-item">
-                    <h2 class="item-title"><a href="#">Frontier Focus: July 2025 Edition</a></h2>
-                    <p class="item-summary">Featuring a detailed report on the successful test of our new semi-cryogenic engine, an interview with the Chandrayaan-3 science team, and upcoming events for space enthusiasts.</p>
-                </article>
+                    <article class="article-item">
+                        <h2 class="item-title"><a href="august-2025-newsletter.html">Orbital Outlook: August 2025 Edition</a></h2>
+                        <p class="item-summary">A look back at the final preparations for the Aditya-L1 mission, updates on the Gaganyaan astronaut training program, and a spotlight on our Earth observation satellite data applications.</p>
+                    </article>
+                    
+                    <article class="article-item">
+                        <h2 class="item-title"><a href="july-2025-newsletter.html">Frontier Focus: July 2025 Edition</a></h2>
+                        <p class="item-summary">Featuring a detailed report on the successful test of our new semi-cryogenic engine, an interview with the Chandrayaan-3 science team, and upcoming events for space enthusiasts.</p>
+                    </article>
+                    
+                    <div id="no-results" style="display: none; padding: 2rem; text-align: center;">
+                        <h3>No newsletters match your search.</h3>
+                        <p>Please try a different keyword.</p>
+                    </div>
+                </div>
+
+                <aside class="sidebar">
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Search Newsletters</h3>
+                        <form class="search-bar" role="search" onsubmit="return false;">
+                            <input type="search" id="searchInput" placeholder="Search editions...">
+                        </form>
+                    </div>
+                </aside>
             </div>
         </div>
     </main>
 
     <footer class="main-footer">
         </footer>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const searchInput = document.getElementById("searchInput");
+            const articles = document.querySelectorAll(".article-item");
+            const noResults = document.getElementById("no-results");
+
+            function filterArticles() {
+                const searchQuery = searchInput.value.toLowerCase().trim();
+                let resultsFound = false;
+
+                articles.forEach(article => {
+                    const title = article.querySelector(".item-title").textContent.toLowerCase();
+                    const summary = article.querySelector(".item-summary").textContent.toLowerCase();
+
+                    if (title.includes(searchQuery) || summary.includes(searchQuery)) {
+                        article.style.display = "block";
+                        resultsFound = true;
+                    } else {
+                        article.style.display = "none";
+                    }
+                });
+
+                noResults.style.display = resultsFound ? "none" : "block";
+            }
+            
+            searchInput.addEventListener("keyup", filterArticles);
+        });
+    </script>
+
 </body>
 </html>

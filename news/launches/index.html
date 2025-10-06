@@ -20,32 +20,75 @@
         </section>
 
         <div class="news-container">
-            <h2>Mission Watch: India's Upcoming Journeys to Space</h2>
-            <p>Stay informed about the next exciting chapters in India's space exploration story. All launch dates are tentative and subject to change based on mission readiness and weather conditions.</p>
+            <div class="news-layout">
+                <div class="article-list">
+                    <h2>Mission Watch: India's Upcoming Journeys to Space</h2>
+                    <p>Stay informed about the next exciting chapters in India's space exploration story. All launch dates are tentative and subject to change based on mission readiness and weather conditions.</p>
 
-            <div class="article-list">
-                <article class="article-item">
-                    <div class="item-date">December 2025</div>
-                    <h2 class="item-title">Gaganyaan G1 (Uncrewed)</h2>
-                    <p class="item-summary"><strong>Launch Vehicle:</strong> LVM3<br><strong>Mission:</strong> The first uncrewed developmental flight of the Gaganyaan spacecraft. This is a critical test of the human-rated launch vehicle, orbital module, and re-entry systems before the first crewed mission.</p>
-                </article>
+                    <article class="article-item">
+                        <div class="item-date">December 2025</div>
+                        <h2 class="item-title"><a href="../releases/gaganyaan-uncrewed-flight.html">Gaganyaan G1 (Uncrewed)</a></h2>
+                        <p class="item-summary"><strong>Launch Vehicle:</strong> LVM3<br><strong>Mission:</strong> The first uncrewed developmental flight of the Gaganyaan spacecraft. This is a critical test of the human-rated launch vehicle, orbital module, and re-entry systems before the first crewed mission.</p>
+                    </article>
 
-                <article class="article-item">
-                    <div class="item-date">Early 2026</div>
-                    <h2 class="item-title">RISAT-2A</h2>
-                    <p class="item-summary"><strong>Launch Vehicle:</strong> PSLV<br><strong>Mission:</strong> An advanced radar imaging satellite to enhance India's all-weather surveillance and Earth observation capabilities, crucial for disaster management and security.</p>
-                </article>
-                
-                <article class="article-item">
-                    <div class="item-date">Mid-2026</div>
-                    <h2 class="item-title">Gaganyaan G2 (Uncrewed with Vyommitra)</h2>
-                    <p class="item-summary"><strong>Launch Vehicle:</strong> LVM3<br><strong>Mission:</strong> The second uncrewed test flight, featuring the humanoid robot 'Vyommitra' to simulate human functions and collect vital data on the crew module's environment.</p>
-                </article>
+                    <article class="article-item">
+                        <div class="item-date">Early 2026</div>
+                        <h2 class="item-title"><a href="risat-2a.html">RISAT-2A</a></h2>
+                        <p class="item-summary"><strong>Launch Vehicle:</strong> PSLV<br><strong>Mission:</strong> An advanced radar imaging satellite to enhance India's all-weather surveillance and Earth observation capabilities, crucial for disaster management and security.</p>
+                    </article>
+                    
+                    <article class="article-item">
+                        <div class="item-date">Mid-2026</div>
+                        <h2 class="item-title"><a href="gaganyaan-g2.html">Gaganyaan G2 (Uncrewed with Vyommitra)</a></h2>
+                        <p class="item-summary"><strong>Launch Vehicle:</strong> LVM3<br><strong>Mission:</strong> The second uncrewed test flight, featuring the humanoid robot 'Vyommitra' to simulate human functions and collect vital data on the crew module's environment.</p>
+                    </article>
+
+                     <div id="no-results" style="display: none; padding: 2rem; text-align: center;">
+                        <h3>No launches match your search.</h3>
+                        <p>Please try a different keyword.</p>
+                    </div>
+                </div>
+                <aside class="sidebar">
+                     <div class="sidebar-widget">
+                        <h3 class="widget-title">Search Launches</h3>
+                        <form class="search-bar" role="search" onsubmit="return false;">
+                            <input type="search" id="searchInput" placeholder="Search missions...">
+                        </form>
+                    </div>
+                </aside>
             </div>
         </div>
     </main>
 
     <footer class="main-footer">
         </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const searchInput = document.getElementById("searchInput");
+            const articles = document.querySelectorAll(".article-item");
+            const noResults = document.getElementById("no-results");
+
+            function filterArticles() {
+                const searchQuery = searchInput.value.toLowerCase().trim();
+                let resultsFound = false;
+
+                articles.forEach(article => {
+                    const title = article.querySelector(".item-title").textContent.toLowerCase();
+                    const summary = article.querySelector(".item-summary").textContent.toLowerCase();
+
+                    if (title.includes(searchQuery) || summary.includes(searchQuery)) {
+                        article.style.display = "block";
+                        resultsFound = true;
+                    } else {
+                        article.style.display = "none";
+                    }
+                });
+
+                noResults.style.display = resultsFound ? "none" : "block";
+            }
+            
+            searchInput.addEventListener("keyup", filterArticles);
+        });
+    </script>
 </body>
 </html>
